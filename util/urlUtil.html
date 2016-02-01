@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>make url comprehensible</title>
+<script>
+	function convert(){
+		var urlDom = document.getElementById("url");
+		var url = urlDom.value;
+		var resultDom = document.getElementById("result");
+		resultDom.innerHTML = jsonFromUrl(url);
+	}
+	function jsonFromUrl(url){
+		var start,jsonStr,dataArray,data,result="";
+		start = url.indexOf('?');
+		jsonStr= url.substring(start+1);
+		dataArray = jsonStr.split('&');
+		for(var i in dataArray){
+			data = dataArray[i].split("=");
+			result += data[0] + " = " + data[1] + "<br>";
+		}	
+		return result;
+	}
+</script>
+</head>
+<body>
+<input type="text" id="url" style="width:200"/>
+<button onclick="convert()">commit</button>
+<div id='result'>
+</div>
+
+</body>
+</html>
