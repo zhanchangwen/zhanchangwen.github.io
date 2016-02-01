@@ -4,6 +4,12 @@
 <meta charset="UTF-8">
 <title>make url comprehensible</title>
 <script>
+	document.onkeydown = keydown;
+	function keydown(e){
+		if(e.keyCode == 13){
+			convert();
+		}
+	}
 	function convert(){
 		var urlDom = document.getElementById("url");
 		var url = urlDom.value;
@@ -24,7 +30,7 @@
 </script>
 </head>
 <body>
-<input type="text" id="url" style="width:200"/>
+<textarea id="url" style="width:600" rows=6></textarea>
 <button onclick="convert()">commit</button>
 <div id='result'>
 </div>
