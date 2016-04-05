@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Url Util</title>
+
+	<link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+	<link rel="stylesheet" type="text/css" href="../source/stable/layout-default.css">
+
+	<style type="text/css">
+
+	
+	.ui-layout-west {
+		width:900px;
+	}
+	.ui-layout-north {
+		/* center themeswitcher buttons in north-pane */
+		text-align:	center;
+	}
+
+	.ui-layout-center {
+		/* remove default padding on center-pane so tabs widget fills it */
+		padding:	0;
+	}
+
+	</style>
+
+	<!--<script src="js/jquery-2.js"></script>-->
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<script src="../source/stable/jquery.layout.js"></script>
+
+    <script src="js/themeswitchertool.js"></script> 
+
+	<script type="text/javascript">
+	// create global var for layout so we can call myLayout.resize() after changing a theme
+	var myLayout,data={};
+
+	$(document).ready(function(){
+
+		// create a layout with default settings
+		myLayout = $('body').layout({
+			west__size:			.30
+		});
+		sizePane("west",400);
+		$("#url").change(function(){
+			var url,dataArray,paramStr,link,linkLen,containerDom,scriptStr;
+			url = this.value;
+			//去除链接前面多余信息
+			url = url.substring(url.indexOf("http://"));
+			//去除全部换行符
+			url = url.replace(/[\n]/ig,'');	
+			console.log("当前url为："+url);
+			//获取域名链接
+			linkLen = url.indexOf("?")
+			link = url.substring(0,linkLen);
+			console.log("链接为："+link);
+			//参数字符串
+			paramStr = url.substring(linkLen+1);
+			dataArray = paramStr.split('&');
+			
+			//新建容器存储参数数据
+			containerDom = document.createElement("div");
+		
+			//显示链接			
+			scriptStr = "<table>";
+			scriptStr += '<tr><td>domain：</td><td><input type="text"  style="width:300px" id="domain" value="'+link+'"></td></tr>';
+			//遍历参数
+			for(var i in dataArray){
+				var nameLen = dataArray[i].indexOf("=");
+				var name = dataArray[i].substring(0,nameLen);
+				var value = dataArray[i].substring(nameLen+1);				
+				scriptStr += '<tr><td>'+name+'：</td><td><input type="text" style="width:300px" id="'+name+'" value="'+value+'"></td></tr>';
+				data[name]=value;
+			}
+			scriptStr += '<tr><td colspan="2"><button id="request">请求url</button></td></tr>';
+			scriptStr += '</table>';
+			$("#parameters").empty();
+			$("#parameters").append(scriptStr);			
+			$("#request").click(function(){
+				$.ajax({
+					url:link,
+					type:"GET",
+					data:data,
+					success:function(data1,textStatus){
+						$("#result").html(JSON.stringify(data1));
+					}
+				});
+			});
+			$("input").change(function(){
+				var id = this.id;
+				data[id] = this.value;
+				$("#request").click();
+			});
+			$("#request").click();
+		});
+
+	});
+	</script>
+
+</head>
+<body>
+
+<div class="ui-layout-north">
+	<textarea id="url" cols=100 rows=6></textarea>
+</div>
+
+<div class="ui-layout-west">  
+	<div id="parameters">
+	</div>
+</div>
+
+<div class="ui-layout-south"> <a href="http://zhcw.github.io">zhcw.github.io</a> </div>
+
+<div class="ui-layout-center">
+	<div id="result">
+	</div>
+</div>
+
+</body>
+</html>
