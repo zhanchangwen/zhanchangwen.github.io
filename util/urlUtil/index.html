@@ -66,6 +66,8 @@
 			scriptStr += '<tr><td>domain：</td><td><input type="text"  style="width:300px" id="domain" value="'+link+'"></td></tr>';
 			//遍历参数
 			for(var i in dataArray){
+				//若该项为空，则跳过该参数
+				if(dataArray[i].length < 1) continue;
 				var nameLen = dataArray[i].indexOf("=");
 				var name = dataArray[i].substring(0,nameLen);
 				var value = dataArray[i].substring(nameLen+1);				
