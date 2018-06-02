@@ -42,8 +42,9 @@
 		myLayout = $('body').layout({
 			west__size:			.30
 		});
-		$("#url").change(function(){
+		$("#url").change(function(){			
 			var url,dataArray,paramStr,linkLen,containerDom,scriptStr;
+			data={};
 			url = this.value;
 			//去除链接前面多余信息
 			url = url.substring(url.indexOf("http://"));
@@ -81,7 +82,13 @@
 			$("input").change(function(){
 				var id = this.id;
 				data[id] = this.value;
-				requestUrl();
+				var requestUrl = link + "?";
+		                for(var i in data){
+			            requestUrl = requestUrl + i + '=' + data[i] + '&';
+		                }				
+				url.val(requestUrl);
+				url.change();
+				//requestUrl();
 			});
 			requestUrl();
 		});
