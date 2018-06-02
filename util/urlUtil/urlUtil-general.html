@@ -86,8 +86,8 @@
 		                for(var i in data){
 			            requestUrl = requestUrl + i + '=' + data[i] + '&';
 		                }				
-				url.val(requestUrl);
-				url.change();
+				$("#url").val(requestUrl);
+				$("#url").change();
 				//requestUrl();
 			});
 			requestUrl();
