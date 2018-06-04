@@ -82,13 +82,13 @@
 			$("input").change(function(){
 				var id = this.id;
 				data[id] = this.value;
-				var requestUrl = link + "?";
-		                for(var i in data){
+				//var requestUrl = link + "?";
+		                //for(var i in data){
 			            requestUrl = requestUrl + i + '=' + data[i] + '&';
-		                }				
-				$("#url").val(requestUrl);
-				$("#url").change();
-				//requestUrl();
+		                //}				
+				//$("#url").val(requestUrl);
+				//$("#url").change();
+				requestUrl();
 			});
 			requestUrl();
 		});
@@ -99,6 +99,7 @@
 		for(var i in data){
 			requestUrl = requestUrl + i + '=' + data[i] + '&';
 		}
+		$("#url").val(requestUrl);
 		document.getElementById("fm").src = requestUrl;
 	}
 	</script>
