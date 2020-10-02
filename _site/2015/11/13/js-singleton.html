@@ -1,0 +1,43 @@
+<hr>
+
+<p>layout: post
+title:  JS单体模式
+date:   2015-11-13 10:47:45</p>
+
+<h2>categories: js-mode</h2>
+
+<p>方式一：</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">function Universe(){
+    var instance;
+
+    //
+    Universe = function(){
+        return instance;            
+    }
+
+    //
+    Universe.prototype = this; 
+
+    instance = new Universe();
+
+    instance.constructor = Universe;
+
+    instance.start_time = 0;
+    instance.bang = &quot;Big&quot;;
+    return instance;
+}
+</code></pre></div>
+<p>方式二：</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">var Universe2;
+(function(){ 
+    var instance;
+    Universe = function(){
+        if(instance){
+            return instance;
+        }
+        instance = this;
+        this.start_time = 0;
+        this.bang = &quot;big&quot;;
+    }
+}());
+</code></pre></div>

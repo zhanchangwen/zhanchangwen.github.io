@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--
+         **
+         * Auther:      掌心
+         * Contact:     http://www.zhanxin.info
+         * Create:      2013.08.10
+         * Theme Name:  Kunka
+         * Authorize:   BY-NC-SA
+         **
+        -->
+        <meta charset="utf-8">
+        <title>浪潮面试笔试 - 詹昌文</title>
+        <!-- meta -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="generator" content="Jekyll" />
+        <meta name="author" content="zhanchangwen" />
+        <meta name="description" content="做最好的自己" />
+        <meta name="keywords" content="" />
+        <!-- atom -->
+        <link rel="alternate" type="application/atom+xml" title="Recent Entries" href="/blog/feed.xml" />
+        <link rel="shortcut icon" href="http://tb.himg.baidu.com/sys/portrait/item/15cf7707?t=1422534652" type="image/x-icon" />
+        <!-- font-awesome -->
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+        <link href='http://fonts.googleapis.com/css?family=Spirax' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="/blog/themes/kunka/css/syntax.css">
+        <link rel="stylesheet" href="/blog/themes/kunka/css/main.css">
+        
+    </head>
+    <body>
+        <div class="head fn-clear">
+            <div class="header">
+                <h1 class="logo">
+                    <a href="/blog/"><i class="icon-anchor"></i></a>
+                </h1>
+                <nav class="nav">
+                    <ul>
+                        
+                        
+                        
+                        <li class="nav-item ">
+                            <a href="/blog/index.html">
+                                首页
+                            </a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li class="nav-item ">
+                            <a href="/blog/navigations/categories.html">
+                                分类目录
+                            </a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li class="nav-item ">
+                            <a href="/blog/navigations/archives.html">
+                                文章归档
+                            </a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li class="nav-item ">
+                            <a href="/blog/navigations/contact.html">
+                                联系我
+                            </a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li class="nav-item ">
+                            <a href="/blog/navigations/links.html">
+                                友情链接
+                            </a>
+                            
+                        </li>
+                        
+                    </ul>
+                </nav>
+                <div class="follow">
+                    
+                    <a href="/feed.xml" target="_blank"><i class="icon-rss"></i></a>
+                    
+                    <a href="http://weibo.com/u/5093788277" target="_blank"><i class="icon-weibo"></i></a>
+                    
+                    <a href="http://www.renren.com/288179795" target="_blank"><i class="icon-renren"></i></a>
+                    
+                    <a href="https://github.com/zhanchangwen" target="_blank"><i class="icon-github-alt"></i></a>
+                    
+                    <a href="http://twitter.com" target="_blank"><i class="icon-twitter"></i></a>
+                    
+                    <a href="http://google.com" target="_blank"><i class="icon-google-plus"></i></a>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="contain fn-clear">
+            <div class="container fn-clear">
+                <div class="main">
+                    
+    <div class="article article-post">
+    <h2 class="title">浪潮面试笔试</h2>
+    <div class="info">
+        <span class="info-title"><i class="icon-calendar"></i> Published: </span>
+        <span class="info-date">09 Oct 2015</span>
+        <span class="info-title"><i class="icon-folder-open"></i> Category: </span>
+        <span class="info-link"><a href="/blog/navigations/categories.html#-ref" ></a></span>
+    </div>
+    <p>链接：<a href="http://baodian.yjbys.com/inspur/6-2.html">http://baodian.yjbys.com/inspur/6-2.html</a></p>
+
+<h1>1.上机试题</h1>
+
+<p>1.用c 语言输入一个字符串,再输出,并且去掉两边的空格。
+<a href="http://zhanchangwen.github.io/blog/seek-work/2015/10/10/c-trim.html">http://zhanchangwen.github.io/blog/seek-work/2015/10/10/c-trim.html</a></p>
+
+<p>2.简述b+树和b-树的算法思想。</p>
+
+<p>B-树，又名B树、B-树、B_树。B即Balanced，平衡的意思。</p>
+
+<p>B-树是一种多路搜索树（并不一定是二叉的）</p>
+
+<p>一棵m阶B树(balanced tree of order m)是一棵平衡的m路搜索树。它或者是空树，或者是满足下列性质的树：</p>
+
+<ol>
+<li>根结点至少有两个子女；</li>
+<li>每个非根节点所包含的关键字个数 j 满足：┌m/2┐ - 1 &lt;= j &lt;= m - 1；</li>
+<li>除根结点以外的所有结点（不包括叶子结点）的度数正好是关键字总数加1，故内部子树个数 k 满足：┌m/2┐ &lt;= k &lt;= m ；</li>
+<li>所有的叶子结点都位于同一层。</li>
+</ol>
+
+<p>B+ 树是一种树数据结构，是一个n叉树，每个节点通常有多个孩子，一颗B+树包含根节点、内部节点和叶子节点。根节点可能是一个叶子节点，也可能是一个包含两个或两个以上孩子节点的节点。<br>
+B+ 树的特点是能够保持数据稳定有序，其插入与修改拥有较稳定的对数时间复杂度。B+ 树元素自底向上插入。</p>
+
+<p>3.简述先序遍历,中序遍历,后序遍历的算法思想。</p>
+
+<p>先序遍历：<a href="http://baike.baidu.com/link?url=-zY-vQfup8lfV5rQ9FVNTNsOVDpOYD0Q3hQ3p0LvBolayUwnwxH0xqKtN3V671fWnilsyh_OyBe8OR_g7KTgSa">百度百科-先序遍历</a></p>
+
+<p>首先访问根结点然后遍历左子树，最后遍历右子树。在遍历左、右子树时，仍然先访问根结点，然后遍历左子树，最后遍历右子树，如果二叉树为空则返回。</p>
+
+<p>中序遍历：<a href="http://baike.baidu.com/link?url=zvY99E5DTuibEfqMRdCLZxZLQyQe0GevVw6PBcngDnrYfyXNod3ny5xXdDsWNIPANL5Q9IsSya-0RxvnLDQUAq">百度百科-中序遍历</a></p>
+
+<p>首先遍历左子树，然后访问根结点，最后遍历右子树。在遍历左、右子树时，仍然先遍历左子树，再访问根结点，最后遍历右子树。</p>
+
+<p>后序遍历：<a href="http://baike.baidu.com/link?url=SfHHT2NDlLxcpJGAMtYyhS623aJpilcI_l8q3u9WA_ACSs63HH92liPaGcccEEFdy0vAg5G4X4Ypl1nP67Syva">百度百科-后序遍历</a></p>
+
+<p>首先遍历左子树，然后遍历右子树，最后访问根结点，在遍历左、右子树时，仍然先遍历左子树，然后遍历右子树，最后遍历根结点。</p>
+
+<p>算法核心思想：</p>
+
+<p>首先要搞清楚先序、中序、后序的非递归算法共同之处：用栈来保存先前走过的路径，以便可以在访问完子树后,可以利用栈中的信息,回退到当前节点的双亲节点,进行下一步操作。
+后序遍历的非递归算法是三种顺序中最复杂的，原因在于，后序遍历是先访问左、右子树,再访问根节点，而在非递归算法中，利用栈回退到时，并不知道是从左子树回退到根节点，还是从右子树回退到根节点，如果从左子树回退到根节点，此时就应该去访问右子树，而如果从右子树回退到根节点，此时就应该访问根节点。所以相比前序和后序，必须得在压栈时添加信息，以便在退栈时可以知道是从左子树返回，还是从右子树返回进而决定下一步的操作。</p>
+
+<p>4.1000个苹果，分别将它们装进10个篮子里。 </p>
+
+<p>要求：当要取1~1000个数之中任意数个苹果时，必须整整地取苹果（即不能在一篮苹果中分零，只取其中的几个）</p>
+
+<p>请将每个篮子中的苹果个数写出来。</p>
+
+    <nav class="article-previous fn-clear">
+        
+        <a class="prev" href="/blog//java-study/2015/10/09/java-net.html" rel="bookmark">&laquo;&nbsp;网络编程技术</a>
+        
+        
+        <a class="next" href="/blog//seek-work/2015/10/10/c-trim.html" rel="bookmark">C语言 去除字符串首尾空格&nbsp;&raquo;</a>
+        
+    </nav>
+    <div class="comment">
+        
+            
+        
+    </div>
+</div>
+
+
+                    
+                        <div id="disqus_thread"></div>
+ <script type="text/javascript">
+     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+     var disqus_shortname = 'zhanchangwen'; // required: replace example with your forum shortname
+
+     /* * * DON'T EDIT BELOW THIS LINE * * */
+     (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+ </script>
+ <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+
+                    
+                </div>
+                <div class="aside">
+                    <div class="aside-contact">
+                        <h4 class="title">About me</h4>
+                        <div class="det fn-clear">
+                            <div class="det-image">
+                                <img src="http://tb.himg.baidu.com/sys/portrait/item/15cf7707?t=1422534652" />
+                            </div>
+                            <div class="det-text">
+                                <p>我是「詹昌文」，我要做最好的自己。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="aside-item">
+                        <h4 class="title">Recent Posts</h4>
+                        <ul class="list">
+                            
+                                <li><a href="/blog/2015/11/16/to-be-mature.html" title="To Be Mature" rel="bookmark">To Be Mature</a></li>
+                            
+                                <li><a href="/blog/2015/11/13/js-singleton.html" title="Js Singleton" rel="bookmark">Js Singleton</a></li>
+                            
+                                <li><a href="/blog/technique/2015/11/07/array-texture.html" title="通过数组生成纹理" rel="bookmark">通过数组生成纹理</a></li>
+                            
+                                <li><a href="/blog/webgl/2015/11/06/renderToTexture.html" title="渲染到纹理" rel="bookmark">渲染到纹理</a></li>
+                            
+                                <li><a href="/blog/git/2015/11/06/git-manual.html" title="git教程-远程仓库的基本使用" rel="bookmark">git教程-远程仓库的基本使用</a></li>
+                            
+                                <li><a href="/blog/html/2015/11/06/encoding.html" title="中文乱码问题" rel="bookmark">中文乱码问题</a></li>
+                            
+                        </ul>
+                    </div>
+
+                    <div class="aside-item">
+                        <h4 class="title">Links</h4>
+                        <ul class="list">
+                            
+                                
+                                    
+                                    <li><a href="http://www.zhanxin.info" title="掌心" target="_blank">掌心</a></li>
+                                    
+                                    <li><a href="http://jekyllrb.com" title="Jekyll" target="_blank">Jekyll</a></li>
+                                    
+                                    <li><a href="http://www.zhanxin.info/themes.html" title="Jekyll Theme" target="_blank">Jekyll Theme</a></li>
+                                    
+                                
+                            
+                                
+                            
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="foot">
+            <div class="footer">
+                <p>Copyright 2013. All rights reserved. Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>, Design by <a href="http://www.zhanxin.info" target="_blank">zhanxin.info</a>.</p>
+            </div>
+        </div>
+        <script type="text/javascript" src="https://lib.sinaapp.com/js/jquery/1.8.3/jquery.min.js"></script>
+        
+    </body>
+</html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--
+         **
+         * Auther:      掌心
+         * Contact:     http://www.zhanxin.info
+         * Create:      2013.08.10
+         * Theme Name:  Kunka
+         * Authorize:   BY-NC-SA
+         **
+        -->
+        <meta charset="utf-8">
+        <title>GitHub Flavored Markdown新手指南 - 詹昌文</title>
+        <!-- meta -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="generator" content="Jekyll" />
+        <meta name="author" content="zhanchangwen" />
+        <meta name="description" content="做最好的自己" />
+        <meta name="keywords" content="" />
+        <!-- atom -->
+        <link rel="alternate" type="application/atom+xml" title="Recent Entries" href="/blog/feed.xml" />
+        <link rel="shortcut icon" href="http://tb.himg.baidu.com/sys/portrait/item/15cf7707?t=1422534652" type="image/x-icon" />
+        <!-- font-awesome -->
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+        <link href='http://fonts.googleapis.com/css?family=Spirax' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="/blog/themes/kunka/css/syntax.css">
+        <link rel="stylesheet" href="/blog/themes/kunka/css/main.css">
+        
+    </head>
+    <body>
+        <div class="head fn-clear">
+            <div class="header">
+                <h1 class="logo">
+                    <a href="/blog/"><i class="icon-anchor"></i></a>
+                </h1>
+                <nav class="nav">
+                    <ul>
+                        
+                        
+                        
+                        <li class="nav-item ">
+                            <a href="/blog/index.html">
+                                首页
+                            </a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li class="nav-item ">
+                            <a href="/blog/navigations/categories.html">
+                                分类目录
+                            </a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li class="nav-item ">
+                            <a href="/blog/navigations/archives.html">
+                                文章归档
+                            </a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li class="nav-item ">
+                            <a href="/blog/navigations/contact.html">
+                                联系我
+                            </a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li class="nav-item ">
+                            <a href="/blog/navigations/links.html">
+                                友情链接
+                            </a>
+                            
+                        </li>
+                        
+                    </ul>
+                </nav>
+                <div class="follow">
+                    
+                    <a href="/feed.xml" target="_blank"><i class="icon-rss"></i></a>
+                    
+                    <a href="http://weibo.com/u/5093788277" target="_blank"><i class="icon-weibo"></i></a>
+                    
+                    <a href="http://www.renren.com/288179795" target="_blank"><i class="icon-renren"></i></a>
+                    
+                    <a href="https://github.com/zhanchangwen" target="_blank"><i class="icon-github-alt"></i></a>
+                    
+                    <a href="http://twitter.com" target="_blank"><i class="icon-twitter"></i></a>
+                    
+                    <a href="http://google.com" target="_blank"><i class="icon-google-plus"></i></a>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="contain fn-clear">
+            <div class="container fn-clear">
+                <div class="main">
+                    
+    <div class="article article-post">
+    <h2 class="title">GitHub Flavored Markdown新手指南</h2>
+    <div class="info">
+        <span class="info-title"><i class="icon-calendar"></i> Published: </span>
+        <span class="info-date">13 Sep 2015</span>
+        <span class="info-title"><i class="icon-folder-open"></i> Category: </span>
+        <span class="info-link"><a href="/blog/navigations/categories.html#-ref" ></a></span>
+    </div>
+    <hr>
+
+<p>可参考：<a href="http://www.appinn.com/markdown/">markdown语法说明</a></p>
+
+<p>GitHub的Markdown语法在标准的Markdown语法基础上做了扩充，称之为<code>GitHub Flavored Markdown</code>，简称<code>GFM</code>。GFM在GitHub上有广泛应用，issues和wiki均支持Markdown语法。GitHub对一般的<code>.md</code>格式文件的解析与本处GitHub个人主页中<code>.md</code>格式文件的解析是不太一样的。</p>
+
+<hr>
+
+<h2>1. 标题</h2>
+
+<p>Markdown支持两种风格的标题，Setext和atx，但不知什么原因，这里的一级标题总是和二级标题一样大小。</p>
+
+<h3>Setext-风格：一级标题下面一行使用等号符号=，二级标题下面使用连字符符号-，至少有一个=和-就能正常工作。</h3>
+
+<h1>一级标题</h1>
+
+<h2>二级标题</h2>
+
+<h3>Atx-风格：每行的开头使用1-6个井号字符，分别对应标题级别1-6。</h3>
+
+<h2>2. 列表</h2>
+
+<h3>无序列表</h3>
+
+<ul>
+<li>文本1</li>
+<li>文本1</li>
+<li>文本3</li>
+</ul>
+
+<h3>更多无序列表：用tab缩进实现</h3>
+
+<ul>
+<li>编程语言
+
+<ul>
+<li>脚本语言
+
+<ul>
+<li>Python</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h3>有序列表</h3>
+
+<ol>
+<li>文本1</li>
+<li>文本2</li>
+<li>文本3</li>
+</ol>
+
+<h2>3. 引用</h2>
+
+<blockquote>
+<p>一盏灯，一片昏黄；一简书，一杯淡茶。守着那一份淡定，品读属于自己的寂寞。保持淡定，才能欣赏到最美丽的风景！保持淡定，人生从此不再寂寞。</p>
+</blockquote>
+
+<h2>4. 强调</h2>
+
+<p>使用两个星号包围起来的文字，是<strong>粗体</strong>
+使用一个星号包围起来的文字，是<em>斜体</em>
+使用`<code>（Tab键上面那个点）包围起来的文字，会被高亮显示</code>高亮`
+使用两个波浪线包围的字，会加~~删除线~~，但不知什么原因此处删除线失效
+组合使用粗体、斜体：<strong><em>斜粗体1</em></strong>、<strong><em>斜粗体2</em></strong></p>
+
+<h2>5. 表格：这里表格的一些功能也无法正常工作</h2>
+
+<p>| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |</p>
+
+<p>dog | bird | cat
+----|------|----
+foo | foo  | foo
+bar | bar  | bar
+baz | baz  | baz</p>
+
+<table border="1">
+<tr>
+<td>row 1, cell 1</td>
+<td>row 1, cell 2</td>
+</tr>
+<tr>
+<td>row 2, cell 1</td>
+<td>row 2, cell 2</td>
+</tr>
+</table>
+
+<table border="1">
+<tr>
+<th>Heading</th>
+<th>Another Heading</th>
+</tr>
+<tr>
+<td>row 1, cell 1</td>
+<td>row 1, cell 2</td>
+</tr>
+<tr>
+<td>row 2, cell 1</td>
+<td>row 2, cell 2</td>
+</tr>
+</table>
+
+<h2>6. 代码高亮</h2>
+
+<p>使用三个```加上语言名称，并以同样的标签结束。</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">//Objective-C
+
+//PHP是最好的语言
+
+printf(&quot;HelloWorld!&quot;)
+</code></pre></div><div class="highlight"><pre><code class="language-Java" data-lang="Java"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span><span class="n">args</span><span class="o">){}</span> <span class="c1">//Java</span>
+</code></pre></div><div class="highlight"><pre><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="n">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="c1">//C</span>
+</code></pre></div><div class="highlight"><pre><code class="language-Bash" data-lang="Bash"><span class="nb">echo</span> <span class="s2">&quot;hello GitHub&quot;</span><span class="c">#Bash</span>
+</code></pre></div><div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;myH1&quot;</span><span class="p">).</span><span class="nx">innerHTML</span><span class="o">=</span><span class="s2">&quot;Welcome to my Homepage&quot;</span><span class="p">;</span> <span class="c1">//javascipt</span>
+</code></pre></div><div class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="n">string</span> <span class="o">&amp;</span><span class="k">operator</span><span class="o">+</span><span class="p">(</span><span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">A</span><span class="p">,</span><span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">B</span><span class="p">)</span> <span class="c1">//cpp</span>
+</code></pre></div>
+<h2>7. 水平线</h2>
+
+<hr>
+
+<hr>
+
+<hr>
+
+    <nav class="article-previous fn-clear">
+        
+        <a class="prev" href="/blog//technology/2015/09/03/markdown-tool.html" rel="bookmark">&laquo;&nbsp;Markdown工具</a>
+        
+        
+        <a class="next" href="/blog//technology/2015/10/05/stream-operate.html" rel="bookmark">流线LIC矢量操作纹理&nbsp;&raquo;</a>
+        
+    </nav>
+    <div class="comment">
+        
+            
+        
+    </div>
+</div>
+
+
+                    
+                        <div id="disqus_thread"></div>
+ <script type="text/javascript">
+     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+     var disqus_shortname = 'zhanchangwen'; // required: replace example with your forum shortname
+
+     /* * * DON'T EDIT BELOW THIS LINE * * */
+     (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+ </script>
+ <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+
+                    
+                </div>
+                <div class="aside">
+                    <div class="aside-contact">
+                        <h4 class="title">About me</h4>
+                        <div class="det fn-clear">
+                            <div class="det-image">
+                                <img src="http://tb.himg.baidu.com/sys/portrait/item/15cf7707?t=1422534652" />
+                            </div>
+                            <div class="det-text">
+                                <p>我是「詹昌文」，我要做最好的自己。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="aside-item">
+                        <h4 class="title">Recent Posts</h4>
+                        <ul class="list">
+                            
+                                <li><a href="/blog/2015/11/16/to-be-mature.html" title="To Be Mature" rel="bookmark">To Be Mature</a></li>
+                            
+                                <li><a href="/blog/2015/11/13/js-singleton.html" title="Js Singleton" rel="bookmark">Js Singleton</a></li>
+                            
+                                <li><a href="/blog/technique/2015/11/07/array-texture.html" title="通过数组生成纹理" rel="bookmark">通过数组生成纹理</a></li>
+                            
+                                <li><a href="/blog/webgl/2015/11/06/renderToTexture.html" title="渲染到纹理" rel="bookmark">渲染到纹理</a></li>
+                            
+                                <li><a href="/blog/git/2015/11/06/git-manual.html" title="git教程-远程仓库的基本使用" rel="bookmark">git教程-远程仓库的基本使用</a></li>
+                            
+                                <li><a href="/blog/html/2015/11/06/encoding.html" title="中文乱码问题" rel="bookmark">中文乱码问题</a></li>
+                            
+                        </ul>
+                    </div>
+
+                    <div class="aside-item">
+                        <h4 class="title">Links</h4>
+                        <ul class="list">
+                            
+                                
+                                    
+                                    <li><a href="http://www.zhanxin.info" title="掌心" target="_blank">掌心</a></li>
+                                    
+                                    <li><a href="http://jekyllrb.com" title="Jekyll" target="_blank">Jekyll</a></li>
+                                    
+                                    <li><a href="http://www.zhanxin.info/themes.html" title="Jekyll Theme" target="_blank">Jekyll Theme</a></li>
+                                    
+                                
+                            
+                                
+                            
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="foot">
+            <div class="footer">
+                <p>Copyright 2013. All rights reserved. Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>, Design by <a href="http://www.zhanxin.info" target="_blank">zhanxin.info</a>.</p>
+            </div>
+        </div>
+        <script type="text/javascript" src="https://lib.sinaapp.com/js/jquery/1.8.3/jquery.min.js"></script>
+        
+    </body>
+</html>

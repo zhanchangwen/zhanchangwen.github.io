@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--
+         **
+         * Auther:      掌心
+         * Contact:     http://www.zhanxin.info
+         * Create:      2013.08.10
+         * Theme Name:  Kunka
+         * Authorize:   BY-NC-SA
+         **
+        -->
+        <meta charset="utf-8">
+        <title>安装配置hibernate - 詹昌文</title>
+        <!-- meta -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="generator" content="Jekyll" />
+        <meta name="author" content="zhanchangwen" />
+        <meta name="description" content="做最好的自己" />
+        <meta name="keywords" content="" />
+        <!-- atom -->
+        <link rel="alternate" type="application/atom+xml" title="Recent Entries" href="/blog/feed.xml" />
+        <link rel="shortcut icon" href="http://tb.himg.baidu.com/sys/portrait/item/15cf7707?t=1422534652" type="image/x-icon" />
+        <!-- font-awesome -->
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+        <link href='http://fonts.googleapis.com/css?family=Spirax' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="/blog/themes/kunka/css/syntax.css">
+        <link rel="stylesheet" href="/blog/themes/kunka/css/main.css">
+        
+    </head>
+    <body>
+        <div class="head fn-clear">
+            <div class="header">
+                <h1 class="logo">
+                    <a href="/blog/"><i class="icon-anchor"></i></a>
+                </h1>
+                <nav class="nav">
+                    <ul>
+                        
+                        
+                        
+                        <li class="nav-item ">
+                            <a href="/blog/index.html">
+                                首页
+                            </a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li class="nav-item ">
+                            <a href="/blog/navigations/categories.html">
+                                分类目录
+                            </a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li class="nav-item ">
+                            <a href="/blog/navigations/archives.html">
+                                文章归档
+                            </a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li class="nav-item ">
+                            <a href="/blog/navigations/contact.html">
+                                联系我
+                            </a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li class="nav-item ">
+                            <a href="/blog/navigations/links.html">
+                                友情链接
+                            </a>
+                            
+                        </li>
+                        
+                    </ul>
+                </nav>
+                <div class="follow">
+                    
+                    <a href="/feed.xml" target="_blank"><i class="icon-rss"></i></a>
+                    
+                    <a href="http://weibo.com/u/5093788277" target="_blank"><i class="icon-weibo"></i></a>
+                    
+                    <a href="http://www.renren.com/288179795" target="_blank"><i class="icon-renren"></i></a>
+                    
+                    <a href="https://github.com/zhanchangwen" target="_blank"><i class="icon-github-alt"></i></a>
+                    
+                    <a href="http://twitter.com" target="_blank"><i class="icon-twitter"></i></a>
+                    
+                    <a href="http://google.com" target="_blank"><i class="icon-google-plus"></i></a>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="contain fn-clear">
+            <div class="container fn-clear">
+                <div class="main">
+                    
+    <div class="article article-post">
+    <h2 class="title">安装配置hibernate</h2>
+    <div class="info">
+        <span class="info-title"><i class="icon-calendar"></i> Published: </span>
+        <span class="info-date">24 Oct 2015</span>
+        <span class="info-title"><i class="icon-folder-open"></i> Category: </span>
+        <span class="info-link"><a href="/blog/navigations/categories.html#-ref" ></a></span>
+    </div>
+    <p><a href="http://blog.csdn.net/hanshileiai/article/details/37874167" title=" Hibernate 下载、安装和使用">http://blog.csdn.net/hanshileiai/article/details/37874167</a>
+一、下载 Hibernate 下载地址：http://hibernate.org/orm/downloads/</p>
+
+<p>二、将解压缩路径中 lib 路径下的 required、jpa 子目录下所有 JAR 包添加到应用的类加载路径中。（数据库操作别忘了加入 JDBC 驱动）</p>
+
+<p>三、Hibernate 的数据库操作
+    1. 低侵入式设计  PO (persistant object) 持久对象类：  src\hsl\domain\News.java 代码如下：
+[java] view plaincopy在CODE上查看代码片派生到我的代码片
+    package hsl.domain;  </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">public class News {  
+    // 消息类的标识属性  
+    private Integer id;  
+    // 消息标题  
+    private String title;  
+    // 消息内容  
+    private String content;  
+
+    // id属性的setter和getter方法  
+    public void setId(Integer id) {  
+        this.id = id;  
+    }  
+
+    public Integer getId() {  
+        return this.id;  
+    }  
+
+    // title属性的setter和getter方法  
+    public void setTitle(String title) {  
+        this.title = title;  
+    }  
+
+    public String getTitle() {  
+        return this.title;  
+    }  
+
+    // content属性的setter和getter方法  
+    public void setContent(String content) {  
+        this.content = content;  
+    }  
+
+    public String getContent() {  
+        return this.content;  
+    }  
+}  
+2. 为使以上 PO 类具备持久化操作的能力，这里 Hibernate 采用 XML 映射文件 src\hsl\domain\News.hbm.xml  代码如下：
+[html] view plaincopy在CODE上查看代码片派生到我的代码片
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;gb2312&quot;?&gt;  
+    &lt;!-- 指定Hiberante3映射文件的DTD信息 --&gt;  
+&lt;!DOCTYPE hibernate-mapping PUBLIC   
+    &quot;-//Hibernate/Hibernate Mapping DTD 3.0//EN&quot;  
+    &quot;http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd&quot;&gt;  
+    &lt;!-- hibernate-mapping是映射文件的根元素 --&gt;  
+&lt;hibernate-mapping package=&quot;hsl.domain&quot;&gt;  
+    &lt;!-- 每个class元素对应一个持久化对象 --&gt;  
+    &lt;class name=&quot;News&quot; table=&quot;news_table&quot;&gt;  
+        &lt;!-- id元素定义持久化类的标识属性 --&gt;  
+        &lt;id name=&quot;id&quot;&gt;  
+            &lt;!-- 指定主键生成策略 --&gt;  
+            &lt;generator class=&quot;identity&quot; /&gt;  
+        &lt;/id&gt;  
+        &lt;!-- property元素定义常规属性 --&gt;  
+        &lt;property name=&quot;title&quot; /&gt;  
+        &lt;property name=&quot;content&quot; /&gt;  
+    &lt;/class&gt;  
+&lt;/hibernate-mapping&gt;  
+3. Hibernate 配置文件 src \hibernate.cfg.xml 代码如下：
+</code></pre></div>
+<p>[html] view plaincopy在CODE上查看代码片派生到我的代码片
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;GBK&quot;?&gt;<br>
+&lt;!-- 指定Hibernate配置文件的DTD信息 --&gt;<br>
+&lt;!DOCTYPE hibernate-configuration PUBLIC<br>
+    &quot;-//Hibernate/Hibernate Configuration DTD 3.0//EN&quot;<br>
+    &quot;http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd&quot;&gt;<br>
+&lt;!-- hibernate- configuration是连接配置文件的根元素 --&gt;<br>
+    <hibernate-configuration><br>
+        <session-factory><br>
+            &lt;!-- 指定连接数据库所用的驱动 --&gt;<br>
+            <property name="connection.driver_class">com.mysql.jdbc.Driver</property><br>
+            &lt;!-- 指定连接数据库的url，hibernate连接的数据库名 --&gt;<br>
+            <property name="connection.url">jdbc:mysql://localhost/hibernate</property><br>
+            &lt;!-- 指定连接数据库的编码 --&gt;<br>
+            <property name="connection.characterEncoding">utf8</property><br>
+            &lt;!-- 指定连接数据库的用户名 --&gt;<br>
+            <property name="connection.username">root</property><br>
+            &lt;!-- 指定连接数据库的密码 --&gt;<br>
+            <property name="connection.password">8656216</property><br>
+            &lt;!-- 指定连接池里最大连接数 --&gt;<br>
+            <property name="hibernate.c3p0.max_size">20</property><br>
+            &lt;!-- 指定连接池里最小连接数 --&gt;<br>
+            <property name="hibernate.c3p0.min_size">1</property><br>
+            &lt;!-- 指定连接池里连接的超时时长 --&gt;<br>
+            <property name="hibernate.c3p0.timeout">5000</property><br>
+            &lt;!-- 指定连接池里最大缓存多少个Statement对象 --&gt;<br>
+            <property name="hibernate.c3p0.max_statements">100</property><br>
+            <property name="hibernate.c3p0.idle_test_period">3000</property><br>
+            <property name="hibernate.c3p0.acquire_increment">2</property><br>
+            <property name="hibernate.c3p0.validate">true</property><br>
+            &lt;!-- 指定数据库方言 --&gt;<br>
+            &lt;!--<property name="dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>--&gt;<br>
+            <property name="dialect">org.hibernate.dialect.MySQLDialect</property>  </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">        &lt;!-- 根据需要自动创建数据表 --&gt;  
+        &lt;property name=&quot;hbm2ddl.auto&quot;&gt;update&lt;/property&gt;  
+        &lt;!-- 显示Hibernate持久化操作所生成的SQL --&gt;  
+        &lt;property name=&quot;show_sql&quot;&gt;true&lt;/property&gt;  
+        &lt;!-- 将SQL脚本进行格式化后再输出 --&gt;  
+        &lt;property name=&quot;hibernate.format_sql&quot;&gt;true&lt;/property&gt;  
+        &lt;!-- 罗列所有的映射文件 --&gt;  
+        &lt;mapping resource=&quot;hsl/domain/News.hbm.xml&quot;/&gt;  
+    &lt;/session-factory&gt;  
+&lt;/hibernate-configuration&gt;  
+4. 由于上面的程序需要使用 C3P0 连接池，因此我们还需要将下载的 hibernate-release-4.3.5.Final\lib\optional\c3p0  目录下的JAR 包也添加到系统的类加载路径下。
+</code></pre></div>
+<p>除此之外，由于Hibernate 3.6及以上版本都使用 SLF4J 作为日志工具，我们可以登录 http://www.slf4j.org/download.html，下载 SLF4J 日志工具slf4j-1.7.7.zip，将解压目录下的 slf4j-api-1.7.7.jar  和  slf4j-nop-1.7.7.jar  这两个JAR 包也添加到系统的类加载路径下。
+    5. 测试信息数据插入数据库  src\hsl\NewsManager.java  代码如下：
+[java] view plaincopy在CODE上查看代码片派生到我的代码片
+    package hsl;  </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">import org.hibernate.*;  
+import org.hibernate.cfg.*;  
+import hsl.domain.*;  
+
+public class NewsManager {  
+    @SuppressWarnings(&quot;deprecation&quot;)  
+    public static void main(String[] args) throws Exception {  
+        // 实例化Configuration，  
+        Configuration conf = new Configuration()  
+        // 下面方法默认加载hibernate.cfg.xml文件  
+                .configure();  
+        // 以Configuration创建SessionFactory  
+        SessionFactory sf = conf.buildSessionFactory();  
+        // 创建Session  
+        Session sess = sf.openSession();  
+        // 开始事务  
+        Transaction tx = sess.beginTransaction();  
+        // 创建消息实例  
+        News n = new News();  
+        // 设置消息标题和消息内容  
+        n.setTitle(&quot;中国风&quot;);  
+        n.setContent(&quot;中国风，&quot; + &quot;网站地址hanshilei.3322.org&quot;);  
+        // 保存消息  
+        sess.save(n);  
+        // 提交事务  
+        tx.commit();  
+        // 关闭Session  
+        sess.close();  
+        sf.close();  
+    }  
+}  
+</code></pre></div>
+<p>注意：如果用的是 myEclipse 需要做如下修改配置
+项目名上右键--〉myeclipse--&gt;add hibernate capabilites --&gt;next--&gt;hibernate config file --&gt; existing --&gt;选择现有工程存在的hibernate配置文件--&gt; next --&gt; 不生成factory class --&gt; end
+    6. 在 mysql 数据库里创建对应数据库  hibernate 并运行程序 NewsManager.java</p>
+
+<p>运行   src\hsl\NewsManager.java  文件得到结果</p>
+
+<p>查看数据库如下：</p>
+
+    <nav class="article-previous fn-clear">
+        
+        <a class="prev" href="/blog//technique/2015/10/24/init-struts.html" rel="bookmark">&laquo;&nbsp;安装配置struts2</a>
+        
+        
+        <a class="next" href="/blog//technique/2015/10/24/noise.html" rel="bookmark">webglg生成白噪声&nbsp;&raquo;</a>
+        
+    </nav>
+    <div class="comment">
+        
+            
+        
+    </div>
+</div>
+
+
+                    
+                        <div id="disqus_thread"></div>
+ <script type="text/javascript">
+     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+     var disqus_shortname = 'zhanchangwen'; // required: replace example with your forum shortname
+
+     /* * * DON'T EDIT BELOW THIS LINE * * */
+     (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+ </script>
+ <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+
+                    
+                </div>
+                <div class="aside">
+                    <div class="aside-contact">
+                        <h4 class="title">About me</h4>
+                        <div class="det fn-clear">
+                            <div class="det-image">
+                                <img src="http://tb.himg.baidu.com/sys/portrait/item/15cf7707?t=1422534652" />
+                            </div>
+                            <div class="det-text">
+                                <p>我是「詹昌文」，我要做最好的自己。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="aside-item">
+                        <h4 class="title">Recent Posts</h4>
+                        <ul class="list">
+                            
+                                <li><a href="/blog/2015/11/16/to-be-mature.html" title="To Be Mature" rel="bookmark">To Be Mature</a></li>
+                            
+                                <li><a href="/blog/2015/11/13/js-singleton.html" title="Js Singleton" rel="bookmark">Js Singleton</a></li>
+                            
+                                <li><a href="/blog/technique/2015/11/07/array-texture.html" title="通过数组生成纹理" rel="bookmark">通过数组生成纹理</a></li>
+                            
+                                <li><a href="/blog/webgl/2015/11/06/renderToTexture.html" title="渲染到纹理" rel="bookmark">渲染到纹理</a></li>
+                            
+                                <li><a href="/blog/git/2015/11/06/git-manual.html" title="git教程-远程仓库的基本使用" rel="bookmark">git教程-远程仓库的基本使用</a></li>
+                            
+                                <li><a href="/blog/html/2015/11/06/encoding.html" title="中文乱码问题" rel="bookmark">中文乱码问题</a></li>
+                            
+                        </ul>
+                    </div>
+
+                    <div class="aside-item">
+                        <h4 class="title">Links</h4>
+                        <ul class="list">
+                            
+                                
+                                    
+                                    <li><a href="http://www.zhanxin.info" title="掌心" target="_blank">掌心</a></li>
+                                    
+                                    <li><a href="http://jekyllrb.com" title="Jekyll" target="_blank">Jekyll</a></li>
+                                    
+                                    <li><a href="http://www.zhanxin.info/themes.html" title="Jekyll Theme" target="_blank">Jekyll Theme</a></li>
+                                    
+                                
+                            
+                                
+                            
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="foot">
+            <div class="footer">
+                <p>Copyright 2013. All rights reserved. Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>, Design by <a href="http://www.zhanxin.info" target="_blank">zhanxin.info</a>.</p>
+            </div>
+        </div>
+        <script type="text/javascript" src="https://lib.sinaapp.com/js/jquery/1.8.3/jquery.min.js"></script>
+        
+    </body>
+</html>

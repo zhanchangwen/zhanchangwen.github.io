@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--
+         **
+         * Auther:      掌心
+         * Contact:     http://www.zhanxin.info
+         * Create:      2013.08.10
+         * Theme Name:  Kunka
+         * Authorize:   BY-NC-SA
+         **
+        -->
+        <meta charset="utf-8">
+        <title>整合ssh - 詹昌文</title>
+        <!-- meta -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="generator" content="Jekyll" />
+        <meta name="author" content="zhanchangwen" />
+        <meta name="description" content="做最好的自己" />
+        <meta name="keywords" content="" />
+        <!-- atom -->
+        <link rel="alternate" type="application/atom+xml" title="Recent Entries" href="/blog/feed.xml" />
+        <link rel="shortcut icon" href="http://tb.himg.baidu.com/sys/portrait/item/15cf7707?t=1422534652" type="image/x-icon" />
+        <!-- font-awesome -->
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+        <link href='http://fonts.googleapis.com/css?family=Spirax' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="/blog/themes/kunka/css/syntax.css">
+        <link rel="stylesheet" href="/blog/themes/kunka/css/main.css">
+        
+    </head>
+    <body>
+        <div class="head fn-clear">
+            <div class="header">
+                <h1 class="logo">
+                    <a href="/blog/"><i class="icon-anchor"></i></a>
+                </h1>
+                <nav class="nav">
+                    <ul>
+                        
+                        
+                        
+                        <li class="nav-item ">
+                            <a href="/blog/index.html">
+                                首页
+                            </a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li class="nav-item ">
+                            <a href="/blog/navigations/categories.html">
+                                分类目录
+                            </a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li class="nav-item ">
+                            <a href="/blog/navigations/archives.html">
+                                文章归档
+                            </a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li class="nav-item ">
+                            <a href="/blog/navigations/contact.html">
+                                联系我
+                            </a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li class="nav-item ">
+                            <a href="/blog/navigations/links.html">
+                                友情链接
+                            </a>
+                            
+                        </li>
+                        
+                    </ul>
+                </nav>
+                <div class="follow">
+                    
+                    <a href="/feed.xml" target="_blank"><i class="icon-rss"></i></a>
+                    
+                    <a href="http://weibo.com/u/5093788277" target="_blank"><i class="icon-weibo"></i></a>
+                    
+                    <a href="http://www.renren.com/288179795" target="_blank"><i class="icon-renren"></i></a>
+                    
+                    <a href="https://github.com/zhanchangwen" target="_blank"><i class="icon-github-alt"></i></a>
+                    
+                    <a href="http://twitter.com" target="_blank"><i class="icon-twitter"></i></a>
+                    
+                    <a href="http://google.com" target="_blank"><i class="icon-google-plus"></i></a>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="contain fn-clear">
+            <div class="container fn-clear">
+                <div class="main">
+                    
+    <div class="article article-post">
+    <h2 class="title">整合ssh</h2>
+    <div class="info">
+        <span class="info-title"><i class="icon-calendar"></i> Published: </span>
+        <span class="info-date">24 Oct 2015</span>
+        <span class="info-title"><i class="icon-folder-open"></i> Category: </span>
+        <span class="info-link"><a href="/blog/navigations/categories.html#-ref" ></a></span>
+    </div>
+    <p>http://takeme.iteye.com/blog/1678268
+注解配置：Struts2+Spring2.5+Hibernate3.3+Oracle11g </p>
+
+<p>本文介绍 
+1.Struts2+Spring2.5+Hibernate3.3的整合 
+2.采用单元测试 
+3.加入了lob类型的操作配置 
+4.介绍oralce驱动 本文采用oracle11g 
+5.在HIbernate中采用“枚举”设置映射关系 </p>
+
+<p>jar的下载: 
+Struts2:   http://struts.apache.org/download.cgi#struts2013 
+Hibernate: http://www.hibernate.org/  点击Hibernate Core 下载 
+Spring:    http://www.springsource.org/download </p>
+
+<p>Oracle的驱动介绍 </p>
+
+<p>Java代码  </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">class12.jar(jdk 1.2 / 1.3 )   
+class14.jar(jdk 1.4 / 1.5)  
+其实只要安装了oracle 就不用下载驱动包了，在安装程序中就有D:\app\Admin\product\11.1.0\db_1\jdbc\lib 这个目录下 根据使用的jdk 选择对应的驱动包就可以了。(例如： ojdbc6.jar)  
+</code></pre></div>
+<p>SSH2整合需要的Jar 
+1.Strusts 
+Java代码 </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">javassist-3.4.GA.jar  
+commons-fileupload-1.2.1.jar  
+commons-logging-1.0.4.jar  
+freemarker-2.3.15.jar  
+ognl-2.7.3.jar  
+struts2-core-2.1.8.jar  
+xwork-core-2.1.6.jar  
+struts2-spring-plugin-2.1.8.jar  
+</code></pre></div>
+<p>2.Hibernate 
+Java代码  </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">commons-collections-3.1.jar  
+dom4j-1.6.1.jar  
+ehcache-1.2.3.jar  
+ejb3-persistence.jar  
+hibernate-annotations.jar  
+hibernate-cglib-repack-2.1_3.jar  
+hibernate-commons-annotations.jar  
+hibernate-entitymanager.jar //为了使用 枚举 类型的映射 这个包  
+hibernate3.jar  
+javassist-3.4.GA.jar  
+jta-1.1.jar  
+log4j.jar  
+slf4j-api-1.5.2.jar  
+slf4j-log4j12.jar  
+</code></pre></div>
+<p>3.Spring </p>
+
+<p>Java代码  </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">aspectjrt.jar  
+aspectjweaver.jar  
+c3p0-0.9.1.2.jar  
+cglib-nodep-2.1_3.jar  
+common-annotations.jar  
+log4j-1.2.15.jar  
+spring.jar  
+</code></pre></div>
+<p>整合步骤先整合 Spring2.5+Hibernate3.3 成功后在整合 Struts2 这样就不容易报错，而且 报错误后也便于找出问题。 </p>
+
+<p>spring配置文件模版可以到 spring自带的一些例子中进行拷贝。 </p>
+
+<p>applicationContext.xml 
+Xml代码</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;  
+&lt;beans xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;   
+    xmlns=&quot;http://www.springframework.org/schema/beans&quot;  
+    xmlns:context=&quot;http://www.springframework.org/schema/context&quot;  
+    xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot;  
+    xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot;  
+    xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans  
+    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd  
+    http://www.springframework.org/schema/context  
+    http://www.springframework.org/schema/context/spring-context-2.5.xsd  
+    http://www.springframework.org/schema/aop  
+    http://www.springframework.org/schema/aop/spring-aop-2.5.xsd  
+    http://www.springframework.org/schema/tx  
+    http://www.springframework.org/schema/tx/spring-tx-2.5.xsd&quot;&gt;        
+&lt;!-- 采用扫描 + 注解的方式进行开发 可以提高开发效率，后期维护变的困难了，可读性变差了 --&gt;  
+&lt;context:component-scan base-package=&quot;com.sh&quot;/&gt;        
+&lt;!-- 采用c3p0数据源 这个是在企业中用的比较多的一个数据源 --&gt;  
+&lt;!-- destroy-method=&quot;close&quot;的作用是当数据库连接不使用的时候，就把该连接重新放到数据池中，方便下次使用调用 --&gt;  
+&lt;bean id=&quot;dataSource&quot; class=&quot;com.mchange.v2.c3p0.ComboPooledDataSource&quot; destroy-method=&quot;close&quot;&gt;  
+   &lt;property name=&quot;driverClass&quot; value=&quot;oracle.jdbc.driver.OracleDriver&quot;/&gt;  
+   &lt;property name=&quot;jdbcUrl&quot; value=&quot;jdbc:oracle:thin:@127.0.0.1:1521:orcl&quot;/&gt;  
+   &lt;property name=&quot;user&quot; value=&quot;luob&quot;/&gt;  
+   &lt;property name=&quot;password&quot; value=&quot;m123&quot;/&gt;  
+   &lt;!-- 连接池中的最大连接数 --&gt;  
+   &lt;property name=&quot;maxPoolSize&quot; value=&quot;150&quot;/&gt;           
+   &lt;!-- 连接池中的最小连接数 --&gt;  
+   &lt;property name=&quot;minPoolSize&quot; value=&quot;1&quot;&gt;&lt;/property&gt;  
+
+   &lt;!-- 初始化连接池中的 连接数,取值 在  minPoolSize 和 maxPoolSize 之间,default:3--&gt;  
+   &lt;property name=&quot;initialPoolSize&quot; value=&quot;3&quot;/&gt;  
+
+   &lt;!-- 最大空闲时间,60s内该连接没有被使用则被丢弃，若为0 永不丢弃.default:0 --&gt;  
+   &lt;property name=&quot;maxIdleTime&quot; value=&quot;60&quot;/&gt;  
+
+   &lt;!-- 当连接数不够时,每次同时创建多少个连接 --&gt;  
+   &lt;property name=&quot;acquireIncrement&quot; value=&quot;1&quot;/&gt;  
+
+   &lt;!-- 每60s检查连接池中的所有空间连接,如果没有被使用,就被放弃, default:0 --&gt;  
+   &lt;property name=&quot;idleConnectionTestPeriod&quot; value=&quot;60&quot;/&gt;  
+&lt;/bean&gt;  
+
+&lt;!--从c3p0数据源中抽取出JDBC的代理对象--&gt;  
+&lt;bean id=&quot;nativeJdbcExtractor&quot; class=&quot;org.springframework.jdbc.support.nativejdbc.C3P0NativeJdbcExtractor&quot;  lazy-init=&quot;true&quot; /&gt;   
+
+&lt;!--9i： org.springframework.jdbc.support.lob.OracleLobHandler  --&gt;  
+&lt;!--10g以后：org.springframework.jdbc.support.lob.DefaultLobHandler(mysql,DB2等都可以用这个)  --&gt;  
+&lt;bean id=&quot;lobHandler&quot; class=&quot;org.springframework.jdbc.support.lob.OracleLobHandler&quot; lazy-init=&quot;true&quot;&gt;  
+  &lt;!-- 9i: 指定操作lob类型数据的jdbc代理对象 如果上面的 lobHandler 换了下面的就不需要了 --&gt;  
+  &lt;property name=&quot;nativeJdbcExtractor&quot;&gt;  
+    &lt;ref local=&quot;nativeJdbcExtractor&quot; /&gt;  
+  &lt;/property&gt;  
+&lt;/bean&gt;  
+
+&lt;!-- 将Hibernate中的事物交给Spring进行接管 --&gt;  
+&lt;bean id=&quot;sessionFactory&quot; class=&quot;org.springframework.orm.hibernate3.LocalSessionFactoryBean&quot;&gt;  
+    &lt;!-- 指定sessiongFactory中的数据源 --&gt;  
+    &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;/&gt;  
+
+    &lt;!-- 指定hibernate的属性  --&gt;  
+    &lt;property name=&quot;hibernateProperties&quot;&gt;  
+        &lt;value&gt;  
+            &lt;!-- hibernate使用的 方言 --&gt;  
+            hibernate.dialect=org.hibernate.dialect.Oracle10gDialect  
+            &lt;!-- 根据实体的映射文件生成表结构 --&gt;  
+            hibernate.hbm2ddl.auto=update  
+            &lt;!-- 格式化sql --&gt;  
+            hibernate.format_sql=false  
+            &lt;!-- 是否打印出sql语句 --&gt;  
+            hibernate.show_sql=false  
+        &lt;/value&gt;  
+    &lt;/property&gt;  
+    &lt;!-- 定义lob操作对象 --&gt;  
+    &lt;property name=&quot;lobHandler&quot;&gt;  
+        &lt;ref bean=&quot;lobHandler&quot; /&gt;  
+    &lt;/property&gt;  
+     &lt;!-- 指定hibernate的映射文件 --&gt;  
+    &lt;property name=&quot;mappingResources&quot;&gt;  
+        &lt;list&gt;  
+            &lt;value&gt;com/sh/employee/model/Employee.hbm.xml&lt;/value&gt;  
+        &lt;/list&gt;  
+    &lt;/property&gt;  
+&lt;/bean&gt;  
+
+&lt;!-- 配置使用基于Hibernate的事务管理器 --&gt;  
+&lt;bean id=&quot;txManager&quot; class=&quot;org.springframework.orm.hibernate3.HibernateTransactionManager&quot;&gt;  
+    &lt;!-- spring需要通过sessionFactory来开启事务 --&gt;  
+    &lt;property name=&quot;sessionFactory&quot; ref=&quot;sessionFactory&quot;/&gt;  
+&lt;/bean&gt;  
+
+&lt;!--Spring中的事物配置声明.1 基于xml 配置方式 2.基于注解来声明那些类--&gt;  
+&lt;tx:annotation-driven transaction-manager=&quot;txManager&quot;/&gt;  
+
+&lt;/beans&gt;  
+
+
+Employee.java 
+Java代码  收藏代码
+package com.sh.employee.model;  
+
+public class Employee {  
+    private String username;  
+    private String password;  
+    //枚举类型  
+    private Gender gender=Gender.MAN;  
+    public String getUsername() {  
+        return username;  
+    }  
+    public void setUsername(String username) {  
+        this.username = username;  
+    }  
+    public String getPassword() {  
+        return password;  
+    }  
+    public void setPassword(String password) {  
+        this.password = password;  
+    }  
+    public Gender getGender() {  
+        return gender;  
+    }  
+    public void setGender(Gender gender) {  
+        this.gender = gender;  
+    }  
+    public Employee(String username, String password) {  
+        super();  
+        this.username = username;  
+        this.password = password;  
+    }  
+    public Employee() {  
+        super();  
+        // TODO Auto-generated constructor stub  
+    }  
+    public Employee(String username, String password, Gender gender) {  
+        super();  
+        this.username = username;  
+        this.password = password;  
+        this.gender = gender;  
+    }  
+
+}  
+
+
+Gender.java 
+Java代码  收藏代码
+package com.sh.employee.model;  
+
+public enum Gender {  
+    //分为字面值 ：MAN   /  WOMAN  
+    //索引值:0 1   
+    MAN,WOMAN  
+
+}  
+</code></pre></div>
+<p>Employee.hbm.xml </p>
+
+<p>Xml代码  </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;  
+&lt;!DOCTYPE hibernate-mapping PUBLIC   
+    &quot;-//Hibernate/Hibernate Mapping DTD 3.0//EN&quot;  
+    &quot;http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd&quot;&gt;  
+&lt;hibernate-mapping package=&quot;com.sh.employee.model&quot;&gt;  
+    &lt;class name=&quot;Employee&quot;&gt;  
+        &lt;id name=&quot;username&quot; length=&quot;20&quot;/&gt;  
+        &lt;property name=&quot;password&quot; length=&quot;20&quot; not-null=&quot;true&quot;/&gt;  
+        &lt;property name=&quot;gender&quot; not-null=&quot;true&quot; length=&quot;5&quot;&gt;  
+            &lt;type name=&quot;org.hibernate.type.EnumType&quot;&gt;  
+                &lt;param name=&quot;enumClass&quot;&gt;com.sh.employee.model.Gender&lt;/param&gt;  
+                &lt;!--type:12 为java.sql.Types.VARCHAR常量值,即保存枚举字面值到数据库。  
+                如果不指定(删除)type:则保存枚举索引值到数据库(从0 开始) --&gt;  
+                &lt;param name=&quot;type&quot;&gt;12&lt;/param&gt;  
+            &lt;/type&gt;  
+        &lt;/property&gt;  
+    &lt;/class&gt;  
+&lt;/hibernate-mapping&gt;  
+</code></pre></div>
+<p>web.xml 
+Xml代码  </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;  
+&lt;web-app version=&quot;2.5&quot;   
+    xmlns=&quot;http://java.sun.com/xml/ns/javaee&quot;   
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;   
+    xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/javaee   
+    http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd&quot;&gt;  
+
+ &lt;!-- 指定spring的配置文件，默认从web根目录寻找配置文件，我们可以通过spring提供的classpath:前缀指定从类路径下寻找 --&gt;  
+  &lt;context-param&gt;  
+    &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;  
+    &lt;!-- 如果有多个文件 使用 &quot;,&quot; 分开 --&gt;  
+    &lt;param-value&gt;classpath:applicationContext.xml&lt;/param-value&gt;  
+  &lt;/context-param&gt;  
+
+  &lt;!-- 对spring容器进行实例化 --&gt;  
+  &lt;listener&gt;  
+    &lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;  
+  &lt;/listener&gt;  
+
+  &lt;!--配置Struts2的过滤器 --&gt;  
+  &lt;filter&gt;  
+    &lt;filter-name&gt;struts2&lt;/filter-name&gt;  
+    &lt;filter-class&gt;org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter&lt;/filter-class&gt;  
+  &lt;/filter&gt;  
+  &lt;filter-mapping&gt;  
+    &lt;filter-name&gt;struts2&lt;/filter-name&gt;  
+    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;  
+  &lt;/filter-mapping&gt;  
+
+  &lt;welcome-file-list&gt;  
+    &lt;welcome-file&gt;index.jsp&lt;/welcome-file&gt;  
+  &lt;/welcome-file-list&gt;  
+&lt;/web-app&gt;  
+</code></pre></div>
+<p>EmployeeService.java </p>
+
+<p>Java代码 </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">package com.sh.employee.interfaces;  
+
+import java.util.List;  
+
+import com.sh.employee.model.Employee;  
+
+public interface EmployeeService {  
+    void save(Employee employee);  
+    void update(Employee employee);  
+    Employee find(String userName);  
+    void delete(String... userName);  
+    List&lt;Employee&gt; list();  
+}  
+</code></pre></div>
+<p>EmployeeServiceBean.java </p>
+
+<p>Java代码</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">package com.sh.employee.service;  
+
+import java.util.List;  
+
+import javax.annotation.Resource;  
+
+import org.hibernate.Session;  
+import org.hibernate.SessionFactory;  
+import org.hibernate.Transaction;  
+import org.springframework.stereotype.Service;  
+import org.springframework.transaction.annotation.Propagation;  
+import org.springframework.transaction.annotation.Transactional;  
+
+import com.sh.employee.interfaces.EmployeeService;  
+import com.sh.employee.model.Employee;  
+
+/** 
+ *@author LuoB. 
+ */  
+
+//@Service: 定义业务层。采用扫描加注解  将这个类交给spring管理 。  
+//-----此时 在spring容器中默认的bean的名称为 这个类的简单类名 employeeServiceBean  
+
+//@Transactional:定义这个类采用事物管理。这样所有的方法都有事物特性了。  
+//-----如果某个方法不需要事物 采用这个标识：@Transactional(propagation=Propagation.NOT_SUPPORTED)  
+@Service @Transactional  
+public class EmployeeServiceBean implements EmployeeService {  
+    //采用注解方式注入SessionFactory  
+    //factory.openSession(); 表示开启一个新的session,这样就不能使用spring的事物管理了  
+    //spring的事物管理一般是先获取当前的session，然后 将这个begin。  
+    //factory.getCurrentSession();【在Hibernate3.0后才提供的这样的一个方法】得到 spring事物管理创建好的session  
+
+
+    @Resource SessionFactory factory;  
+    public void delete(String... userName) {  
+        //中间的load 替换了 get方法  因为速度和效率 比get 高  
+        for (String string : userName) {  
+            factory.getCurrentSession().delete(factory.getCurrentSession().load(Employee.class, string));  
+        }  
+    }  
+
+    @Transactional(propagation=Propagation.NOT_SUPPORTED)  
+    public Employee find(String userName) {  
+        // TODO Auto-generated method stub  
+        return (Employee)factory.getCurrentSession().get(Employee.class, userName);  
+    }  
+
+    @SuppressWarnings(&quot;unchecked&quot;)  
+    public List&lt;Employee&gt; list() {  
+        //Hql 进行查询  
+        /*Session session=factory.openSession(); 
+        Transaction ts= session.beginTransaction(); 
+        ts.commit(); 
+        ts.rollback();*/  
+        return factory.getCurrentSession().createQuery(&quot;from Employee&quot;).list();  
+    }  
+
+    public void save(Employee employee) {  
+        //持久化方法 -内部还是调用save方法  
+        factory.getCurrentSession().persist(employee);  
+    }  
+
+    public void update(Employee employee) {  
+        // merge对update更新了有 save和update的功能  
+        factory.getCurrentSession().merge(employee);  
+    }  
+
+}  
+</code></pre></div>
+<p>EmployeeAction.java </p>
+
+<p>Java代码 </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">package com.sh.employee.action;  
+
+import javax.annotation.Resource;  
+
+import org.springframework.stereotype.Controller;  
+
+import com.opensymphony.xwork2.ActionContext;  
+import com.sh.employee.interfaces.EmployeeService;  
+
+//@Controller 标识这个action为spring中的一个控制层,在spring中为类的简单类名  
+@Controller  
+public class EmployeeAction {  
+    @Resource EmployeeService employeeService;  
+    public String execute(){  
+        ActionContext.getContext().put(&quot;employees&quot;,employeeService.list());  
+        return &quot;list&quot;;  
+    }  
+}  
+</code></pre></div>
+<p>EmployeeManageAction.java </p>
+
+<p>Java代码  </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">package com.sh.employee.action;  
+
+import javax.annotation.Resource;  
+
+import org.springframework.context.annotation.Scope;  
+import org.springframework.stereotype.Controller;  
+
+import com.opensymphony.xwork2.ActionContext;  
+import com.sh.employee.interfaces.EmployeeService;  
+import com.sh.employee.model.Employee;  
+
+//因为Struts2在每次接受到请求后，会迅速的创建actionContext,ValueStack,action   
+//然后把Action存在在ValueStack中 所以Action可以被OGNL访问.  
+//但是把Action交给Spring管理后,action 就是单利模式了,这样 就违背了Struts2的设计理念。  
+//所以 我们需要 将action 声明为 原型 @Scope(&quot;prototype&quot;)  
+@Controller @Scope(&quot;prototype&quot;)  
+public class EmployeeManageAction {  
+    @Resource EmployeeService employeeService;  
+
+    //如果 某个action 不声明为原型(比如: EmployeeAction) 千万不要在该action中 保存用户提交过来的数据   
+    //比如下面 如果是但单利模式 所有的请求都可以访问这个对象了  
+    private Employee employee;  
+
+    public Employee getEmployee() {  
+        return employee;  
+    }  
+
+    public void setEmployee(Employee employee) {  
+        this.employee = employee;  
+    }  
+
+    public String addUI(){  
+        return &quot;add&quot;;  
+    }  
+
+    public String add(){  
+        employeeService.save(employee);  
+        ActionContext.getContext().put(&quot;msg&quot;, &quot;保存成功！&quot;);  
+        return &quot;message&quot;;  
+    }  
+}  
+</code></pre></div>
+<p>struts.xml </p>
+
+<p>Xml代码  </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;  
+&lt;!DOCTYPE struts PUBLIC  
+    &quot;-//Apache Software Foundation//DTD Struts Configuration 2.3//EN&quot;  
+    &quot;http://struts.apache.org/dtds/struts-2.3.dtd&quot;&gt;  
+
+&lt;struts&gt;  
+    &lt;!-- 设置struts的对象工厂,由spring进行创建 (更换Struts2的工厂)--&gt;  
+    &lt;!-- 实际上这个常量不配置也可以,如果项目中使用了struts2-spring-plugin-2.1.8.jar 那么可以不用配置  
+    如果使用了其他的第三方plugin,建议明确配置struts2的对象工厂 --&gt;  
+    &lt;constant name=&quot;struts.objectFactory&quot; value=&quot;spring&quot;/&gt;  
+
+    &lt;package name=&quot;employee&quot; namespace=&quot;/employee&quot; extends=&quot;struts-default&quot;&gt;  
+        &lt;!-- 此时action开始由spring进行创建和管理,因此不用写上action的类名。  
+        需要写上action在spring中的简单类名 --&gt;  
+        &lt;!-- http://localhost:8080/SSH2/employee/list.action --&gt;  
+        &lt;action name=&quot;list&quot; class=&quot;employeeAction&quot;&gt;  
+            &lt;result name=&quot;list&quot;&gt;/WEB-INF/page/employee.jsp&lt;/result&gt;  
+        &lt;/action&gt;  
+
+        &lt;!-- http://localhost:8080/SSH2/employee/manage_addUI.action --&gt;  
+        &lt;action name=&quot;manage_*&quot; class=&quot;employeeManageAction&quot; method=&quot;{1}&quot;&gt;  
+            &lt;result name=&quot;add&quot;&gt;/WEB-INF/page/employeeAdd.jsp&lt;/result&gt;  
+            &lt;result name=&quot;message&quot;&gt;/WEB-INF/page/message.jsp&lt;/result&gt;  
+        &lt;/action&gt;  
+    &lt;/package&gt;  
+
+&lt;/struts&gt;  
+</code></pre></div>
+<p>employee.jsp </p>
+
+<p>Html代码 </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&lt;body&gt;  
+    采用OGNL表达式获取&lt;br/&gt;  
+    &lt;s:iterator value=&quot;#request.employees&quot;&gt;  
+        &lt;s:property value=&quot;username&quot;/&gt;,&lt;s:property value=&quot;password&quot;/&gt;,&lt;s:property value=&quot;gender&quot;/&gt;&lt;br/&gt;  
+    &lt;/s:iterator&gt;  
+    &lt;br/&gt;采用JSTL/EL表达式获取&lt;br/&gt;  
+    &lt;c:forEach var=&quot;emp&quot; items=&quot;${employees}&quot; varStatus=&quot;st&quot;&gt;  
+        ${emp.username},${emp.password},${gender}&lt;br/&gt;  
+    &lt;/c:forEach&gt;  
+    [url=&lt;s:url action=]&quot;&gt;员工添加[/url]  
+ &lt;/body&gt;  
+</code></pre></div>
+<p>employeeAdd.jsp </p>
+
+<p>Html代码</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&lt;body&gt;  
+    &lt;s:form action=&quot;manage_add&quot; namespace=&quot;/employee&quot; method=&quot;post&quot; theme=&quot;simple&quot;&gt;  
+        用户名:&lt;s:textfield name=&quot;employee.username&quot;/&gt;&lt;br/&gt;  
+        密码:&lt;s:textfield name=&quot;employee.password&quot;/&gt;&lt;br/&gt;  
+        性别:&lt;s:radio list=&quot;#{&#39;MAN&#39;:&#39;男&#39;,&#39;WOMEN&#39;:&#39;女&#39;}&quot; listKey=&quot;key&quot; listValue=&quot;value&quot; name=&quot;employee.gender&quot;/&gt;&lt;br/&gt;  
+        &lt;s:submit value=&quot;保存&quot;/&gt;  
+    &lt;/s:form&gt;  
+ &lt;/body&gt;  
+</code></pre></div>
+<p>message.jsp </p>
+
+<p>Html代码</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&lt;body&gt;  
+    &lt;h1&gt;&lt;font color=&quot;red&quot;&gt;${msg}&lt;/font&gt;&lt;/h1&gt;  
+    [url=${pageContext.request.contextPath}/employee/list.action]返回员工列表[/url]  
+  &lt;/body&gt;  
+
+
+--访问http://localhost:8080/SSH2/employee/list.action 
+--访问http://localhost:8080/SSH2/employee/list.action 
+
+Spring,Struts,Hibernate,Oracle 
+Struts2, Spring, Hibernate, Oracle, prototype
+</code></pre></div>
+    <nav class="article-previous fn-clear">
+        
+        <a class="prev" href="/blog//technique/2015/10/24/streamline-technique.html" rel="bookmark">&laquo;&nbsp;流线技术</a>
+        
+        
+        <a class="next" href="/blog//technique/2015/10/24/init-spring.html" rel="bookmark">安装配置Spring&nbsp;&raquo;</a>
+        
+    </nav>
+    <div class="comment">
+        
+            
+        
+    </div>
+</div>
+
+
+                    
+                        <div id="disqus_thread"></div>
+ <script type="text/javascript">
+     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+     var disqus_shortname = 'zhanchangwen'; // required: replace example with your forum shortname
+
+     /* * * DON'T EDIT BELOW THIS LINE * * */
+     (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+ </script>
+ <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+
+                    
+                </div>
+                <div class="aside">
+                    <div class="aside-contact">
+                        <h4 class="title">About me</h4>
+                        <div class="det fn-clear">
+                            <div class="det-image">
+                                <img src="http://tb.himg.baidu.com/sys/portrait/item/15cf7707?t=1422534652" />
+                            </div>
+                            <div class="det-text">
+                                <p>我是「詹昌文」，我要做最好的自己。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="aside-item">
+                        <h4 class="title">Recent Posts</h4>
+                        <ul class="list">
+                            
+                                <li><a href="/blog/2015/11/16/to-be-mature.html" title="To Be Mature" rel="bookmark">To Be Mature</a></li>
+                            
+                                <li><a href="/blog/2015/11/13/js-singleton.html" title="Js Singleton" rel="bookmark">Js Singleton</a></li>
+                            
+                                <li><a href="/blog/technique/2015/11/07/array-texture.html" title="通过数组生成纹理" rel="bookmark">通过数组生成纹理</a></li>
+                            
+                                <li><a href="/blog/webgl/2015/11/06/renderToTexture.html" title="渲染到纹理" rel="bookmark">渲染到纹理</a></li>
+                            
+                                <li><a href="/blog/git/2015/11/06/git-manual.html" title="git教程-远程仓库的基本使用" rel="bookmark">git教程-远程仓库的基本使用</a></li>
+                            
+                                <li><a href="/blog/html/2015/11/06/encoding.html" title="中文乱码问题" rel="bookmark">中文乱码问题</a></li>
+                            
+                        </ul>
+                    </div>
+
+                    <div class="aside-item">
+                        <h4 class="title">Links</h4>
+                        <ul class="list">
+                            
+                                
+                                    
+                                    <li><a href="http://www.zhanxin.info" title="掌心" target="_blank">掌心</a></li>
+                                    
+                                    <li><a href="http://jekyllrb.com" title="Jekyll" target="_blank">Jekyll</a></li>
+                                    
+                                    <li><a href="http://www.zhanxin.info/themes.html" title="Jekyll Theme" target="_blank">Jekyll Theme</a></li>
+                                    
+                                
+                            
+                                
+                            
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="foot">
+            <div class="footer">
+                <p>Copyright 2013. All rights reserved. Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>, Design by <a href="http://www.zhanxin.info" target="_blank">zhanxin.info</a>.</p>
+            </div>
+        </div>
+        <script type="text/javascript" src="https://lib.sinaapp.com/js/jquery/1.8.3/jquery.min.js"></script>
+        
+    </body>
+</html>
