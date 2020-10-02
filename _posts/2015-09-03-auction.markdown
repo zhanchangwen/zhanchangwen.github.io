@@ -1,9 +1,0 @@
----
-layout: post
-title:  "auction"
-date:   2015-09-3 13:46:54
-categories: jekyll update
----
-[twgl.js][twgl]是用于简化webgl使用的库，更贴近底层。
-
-[twgl]: http://twgljs.org/
